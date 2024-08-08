@@ -478,8 +478,8 @@ GameObject:
   - component: {fileID: 996841242}
   - component: {fileID: 996841241}
   - component: {fileID: 996841240}
-  m_Layer: 0
-  m_Name: Spider_4 (3)
+  m_Layer: 3
+  m_Name: Collision 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -608,8 +608,8 @@ GameObject:
   - component: {fileID: 1025393730}
   - component: {fileID: 1025393729}
   - component: {fileID: 1025393728}
-  m_Layer: 0
-  m_Name: Spider_4 (1)
+  m_Layer: 3
+  m_Name: Collision 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,8 +738,8 @@ GameObject:
   - component: {fileID: 1296032622}
   - component: {fileID: 1296032621}
   - component: {fileID: 1296032620}
-  m_Layer: 0
-  m_Name: Spider_4 (2)
+  m_Layer: 3
+  m_Name: Collision 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,8 +868,8 @@ GameObject:
   - component: {fileID: 1373550070}
   - component: {fileID: 1373550069}
   - component: {fileID: 1373550068}
-  m_Layer: 0
-  m_Name: Spider_4
+  m_Layer: 3
+  m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -998,8 +998,8 @@ GameObject:
   - component: {fileID: 1635875813}
   - component: {fileID: 1635875812}
   - component: {fileID: 1635875811}
-  m_Layer: 0
-  m_Name: Spider_5
+  m_Layer: 3
+  m_Name: Collision 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1117,6 +1117,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1713102880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713102881}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1713102881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713102880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15, y: -0.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1737027967}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737027965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,8 +1159,6 @@ GameObject:
   - component: {fileID: 1737027967}
   - component: {fileID: 1737027966}
   - component: {fileID: 1737027972}
-  - component: {fileID: 1737027971}
-  - component: {fileID: 1737027970}
   - component: {fileID: 1737027969}
   - component: {fileID: 1737027968}
   m_Layer: 0
@@ -1176,6 +1205,7 @@ Transform:
   - {fileID: 299143850}
   - {fileID: 108563464}
   - {fileID: 632768587}
+  - {fileID: 1713102881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1737027968
@@ -1190,8 +1220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d856c41c919b617489e145af7e6240a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 15
-  jumpForce: 1000
+  speed: 6
+  jumpinPower: 25
+  fallingPowerFactor: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheck: {fileID: 1713102881}
   body: {fileID: 1737027972}
 --- !u!70 &1737027969
 CapsuleCollider2D:
@@ -1225,79 +1260,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.22, y: 0.28}
-  m_Size: {x: 0.87, y: 1.64}
-  m_Direction: 0
---- !u!70 &1737027970
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737027965}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.55, y: 0.28}
-  m_Size: {x: 0.87, y: 1.64}
-  m_Direction: 0
---- !u!58 &1737027971
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737027965}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 0.28}
-  serializedVersion: 2
-  m_Radius: 0.88
+  m_Offset: {x: 0.33, y: 0.77}
+  m_Size: {x: 5.2, y: 2.5}
+  m_Direction: 1
 --- !u!50 &1737027972
 Rigidbody2D:
   serializedVersion: 4
@@ -1313,8 +1278,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 10
-  m_Material: {fileID: 0}
+  m_GravityScale: 5
+  m_Material: {fileID: 6200000, guid: e3e7f7fa04fb2e74f9bfc54d31c99726, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1322,7 +1287,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 1
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1829325676
